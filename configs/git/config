@@ -1,0 +1,18 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = J Lorieau
+	email = justin@lorieau.com
+	signingKey = ""
+[core]
+	quotepath = false
+	excludesfile = ~/.config/git/ignore
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false

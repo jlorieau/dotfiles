@@ -43,3 +43,11 @@ for conffile in "${SCRIPT_DIR}"/configs/*; do
     print "  ...linking ${conffile}"
 done
 unset conffile
+
+# Link secret config files
+print "Linking secret config files..."
+for conffile in "${SCRIPT_DIR}"/secrets/*; do
+    zf_ln -sf "${conffile}" "${XDG_CONFIG_HOME}"
+    print "  ...linking ${conffile}"
+done
+unset conffile

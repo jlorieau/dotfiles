@@ -7,8 +7,6 @@ source "${ZINIT_ROOT}/zinit.zsh"
 # zinit plugins
 zinit_plugins=(
   lucid wait light-mode
-    # extract archives (https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract)
-    OMZP::extract
     # git aliases (https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git)
     OMZP::git
     # python aliases (https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract)

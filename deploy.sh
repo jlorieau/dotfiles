@@ -20,7 +20,7 @@ XDG_STATE_HOME="${HOME}/.local/state"  # user state files (analogous to /var/lib
 
 # Create required directories
 print "Creating required directory tree..."
-zf_mkdir -p "${XDG_CONFIG_HOME}"/{matplotlib,}
+#zf_mkdir -p "${XDG_CONFIG_HOME}"/{matplotlib,}
 zf_mkdir -p "${XDG_CACHE_HOME}"/{zsh,}
 zf_mkdir -p "${XDG_DATA_HOME}"/{zinit,}
 zf_mkdir -p "${XDG_STATE_HOME}"

@@ -55,6 +55,7 @@ done
 
 # best effort to make tools compliant to XDG basedir spec
 export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
+export MPLCONFIGDIR="${XDG_CONFIG_HOME}/matplotlib"
 export LESSHISTFILE="${XDG_DATA_HOME}/lesshst"
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 export WINEPREFIX="${XDG_DATA_HOME}/wine"

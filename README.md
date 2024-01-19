@@ -1,3 +1,11 @@
+Deployment
+==========
+The following command deploys and updates submodule plugins
+
+```shell
+$ ./deploy.sh
+```
+
 Plugins
 =======
 
@@ -22,3 +30,28 @@ Delete
 ```shell
 $ git submodule rm -f <path>
 ```
+
+Structure
+=========
+
+``config/``
+: Application configurations. Stored in `${XDG_CONFIG_HOME}` (`~/.config`)
+
+``secrets/``
+: Secret application configurations. These entries are not version controlled. Stored in `${XDG_CONFIG_HOME}` (`~/.config`)
+
+``zsh/``
+: Zsh Scripts and plugins.
+
+``zsh/env.d``
+: Zsh environment variables and early settings
+
+``zsh/fpath``
+: Zsh custom functions
+
+``zsh/plugins``
+: Zsh plugins stored as git submodules
+
+``zsh/rc.d``
+: Zsh and plugin configuration.
+

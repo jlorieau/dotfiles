@@ -53,19 +53,23 @@ for nmrpipe_loc in "${nmrpipe_locs[@]}"; do
     fi
 done
 
+# Disable zsh sessions used by MacOS
+export SHELL_SESSIONS_DISABLE=1
+
 # best effort to make tools compliant to XDG basedir spec
-export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
-export MPLCONFIGDIR="${XDG_CONFIG_HOME}/matplotlib"
-export LESSHISTFILE="${XDG_DATA_HOME}/lesshst"
-export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
-export WINEPREFIX="${XDG_DATA_HOME}/wine"
-export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/config"
-export NPM_CONFIG_CACHE="${XDG_CACHE_HOME}/npm"
 export ANSIBLE_LOCAL_TEMP="${XDG_RUNTIME_DIR}/ansible/tmp"
+export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
+export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 export GOPATH="${XDG_DATA_HOME}/go"
 export GEM_HOME="${XDG_DATA_HOME}/gem"
 export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
 export GEMRC="${XDG_CONFIG_HOME}/gem/gemrc"
-export PERL_CPANM_HOME="${XDG_CACHE_HOME}/cpanm"
-export SOLARGRAPH_CACHE="${XDG_CACHE_HOME}/solargraph"
 export GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"
+export LESSHISTFILE="${XDG_DATA_HOME}/lesshst"
+export MPLCONFIGDIR="${XDG_CONFIG_HOME}/matplotlib"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/config"
+export NPM_CONFIG_CACHE="${XDG_CACHE_HOME}/npm"
+export PERL_CPANM_HOME="${XDG_CACHE_HOME}/cpanm"
+export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonstartup.py"
+export SOLARGRAPH_CACHE="${XDG_CACHE_HOME}/solargraph"
+export WINEPREFIX="${XDG_DATA_HOME}/wine"

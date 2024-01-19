@@ -51,3 +51,21 @@ for conffile in "${SCRIPT_DIR}"/secrets/*; do
     print "  ...linking ${conffile}"
 done
 unset conffile
+
+# Make sure submodules are installed
+print "Syncing submodules..."
+git submodule sync > /dev/null
+git submodule update --init --recursive > /dev/null
+git clean -ffd
+print "  ...done"
+
+print "Compiling zsh plugins..."
+{
+    emulate -LR zsh
+    setopt local_options extended_glob
+    autoload -Uz zrecompile
+    for plugin_file in ${SCRIPT_DIR}/zsh/plugins/**/*.zsh{-theme,}(#q.); do
+        zrecompile -pq "${plugin_file}"
+    done
+}
+print "  ...done"

@@ -17,11 +17,15 @@ if [[ "${OSTYPE}" = darwin* ]]; then
     if (( ${+commands[brew]} )); then
         eval $(brew shellenv)
     fi
+
+    # Add homebrew site functions (completions)
+    [[ -d ${HOMEBREW_PREFIX}/share/zsh/site-functions ]] && \
+      fpath+="${HOMEBREW_PREFIX}/share/zsh/site-functions"
 fi
 
 # Enable local binaries and man pages
 path=(${HOME}/.local/bin ${path})
-# MANPATH="${XDG_DATA_HOME}/man:${MANPATH}"
+MANPATH="${XDG_DATA_HOME}/man:${MANPATH}"
 
 # Paths for NMRPipe
 nmrpipe_locs=('/opt/NMRPipe' '~/NMRPipe')

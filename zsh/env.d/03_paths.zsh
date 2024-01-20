@@ -7,8 +7,7 @@
 typeset -U path PATH
 
 # Add custom functions and completions
-fpath_custom=${ZDOTDIR}/fpath
-fpath=($fpath_custom ${fpath})
+fpath=(${ZDOTDIR}/fpath ${fpath})
 
 # Local paths (add to front)
 path=(/usr/local/bin /usr/local/sbin ${path})
@@ -20,7 +19,8 @@ if [[ "${OSTYPE}" = darwin* ]]; then
     fi
 
     if (( ${+commands[brew]} )); then
-        eval $(brew shellenv)
+        autoload -z evalcache
+        evalcache brew shellenv
     fi
 
     # Add homebrew site functions (completions)

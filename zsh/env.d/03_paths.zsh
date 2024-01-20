@@ -3,9 +3,6 @@
 # prepend
 #   path=('/home/david/pear/bin' $path)
 
-# Only allow unique paths
-typeset -U path PATH
-
 # Add custom functions and completions
 fpath=(${ZDOTDIR}/fpath ${fpath})
 

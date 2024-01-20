@@ -1,3 +1,8 @@
+# append
+#   path+=('/home/xxx/bin')
+# prepend
+#   path=('/home/david/pear/bin' $path)
+
 # Only allow unique paths
 typeset -U path PATH
 

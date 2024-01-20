@@ -56,6 +56,10 @@ done
 # Disable zsh sessions used by MacOS
 export SHELL_SESSIONS_DISABLE=1
 
+# Enable terminal colors and customize colors
+export CLICOLOR=1
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+
 # best effort to make tools compliant to XDG basedir spec
 export ANSIBLE_LOCAL_TEMP="${XDG_RUNTIME_DIR}/ansible/tmp"
 export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"

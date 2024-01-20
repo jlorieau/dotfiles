@@ -1,3 +1,6 @@
+A extensible dotfile configuration with clean XDG paths.
+Derived from [z0rc's dotfiles](https://github.com/z0rc/dotfiles/blob/main/zsh/env.d/01_zmodload.zsh).
+
 Deployment
 ==========
 The following command deploys and updates submodule plugins

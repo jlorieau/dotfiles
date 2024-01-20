@@ -7,3 +7,6 @@
 [submodule "zsh/plugins/completions"]
 	path = zsh/plugins/completions
 	url = https://github.com/zsh-users/zsh-completions
+[submodule "zsh/plugins/autocomplete"]
+	path = zsh/plugins/autocomplete
+	url = https://github.com/marlonrichert/zsh-autocomplete

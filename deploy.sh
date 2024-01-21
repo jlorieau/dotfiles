@@ -69,3 +69,21 @@ print "Compiling zsh plugins..."
     done
 }
 print "  ...done"
+
+# OS-specific installations and setup
+if [[ "$(uname)" == "Darwin" ]]; then  # MacOS
+  print "Setting up MacOS dependencies..."
+
+  # Install brew (https://github.com/Homebrew/brew)
+  if test ! $(which brew); then
+    print "  Installing Homebrew (requires admin permission)..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo
+  fi
+
+  # Install items in the Brewfile bundle (see ./Brewfile)
+  print "  Installing Brewfile bundle"
+  brew tap homebrew/bundle
+  brew bundle --file ./Brewfile
+
+fi

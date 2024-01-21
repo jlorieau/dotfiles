@@ -1,4 +1,5 @@
 .idea
+Brewfile.lock.json
 secrets/*
 !secrets/README
 configs/matplotlib/fontlist*

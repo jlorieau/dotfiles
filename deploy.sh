@@ -87,3 +87,7 @@ if [[ "$(uname)" == "Darwin" ]]; then  # MacOS
   brew bundle --file ./Brewfile
 
 fi
+
+# Set correct permissions for dotfiles
+print "Setting dotfiles directory permissions..."
+chmod -R o-rwx `dirname $0`

@@ -4,7 +4,8 @@
 #   path=('/home/david/pear/bin' $path)
 
 # Add custom functions and completions
-fpath=(${ZDOTDIR}/fpath ${fpath})
+fpath_custom=${ZDOTDIR}/fpath
+fpath=(${fpath_custom} ${fpath})
 
 # Local paths (add to front)
 path=(/usr/local/bin /usr/local/sbin ${path})

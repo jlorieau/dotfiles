@@ -3,7 +3,7 @@
 (( ${+commands[du]} )) && alias du="du --human-readable --total"
 
 # listing aliases
-(( ${+commands[ls]} )) && alias ll="ls -alF"
+(( ${+commands[ls]} )) && alias ll="ls -ahlF"
 
 # syntax highlighting
 (( ${+commands[pygmentize]} )) && alias cat="pygmentize -P style=gruvbox-dark"

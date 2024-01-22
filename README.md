@@ -1,6 +1,19 @@
 A extensible dotfile configuration with clean XDG paths.
 Derived from [z0rc's dotfiles](https://github.com/z0rc/dotfiles/blob/main/zsh/env.d/01_zmodload.zsh).
 
+Features
+========
+- Free of dotfiles managers--all configuration done by ``deploy.sh``
+- Implementation of arbitrary git repositories as submodules and includes
+  zsh plugins and extensions
+- Settings loaded in parts from the ``zsh/env.d``, ``zsh/rc.d``, 
+  ``zsh/fpath`` and ``zsh/plugins`` directories
+- Merged ``configs`` and ``secrets`` subdirectories to store configurations
+  in ``${XDG_CONFIG_HOME}``. The directory structure is created and
+  directory permissions are set, and the corrresponding files are symlinked
+  from the original directory to merge the contents of both. The ``secrets``
+  are excluded from version control.
+
 Install
 =======
 Clone the repo to the desired path

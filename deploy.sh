@@ -36,21 +36,33 @@ else
     print "  ...failed to match this script dir, symlinking .zshenv"
 fi
 
-# Link config files
-print "Linking config files..."
-for conffile in "${SCRIPT_DIR}"/configs/*; do
-    zf_ln -sf "${conffile}" "${XDG_CONFIG_HOME}"
-    print "  ...linking ${conffile}"
-done
-unset conffile
+# Link configs/secrets files
+zf_mkdir -p ./secrets
+for configsdir ("configs" "secrets"); do
+  print "Processing ${configsdir} directory..."
+  configsfiles=(`cd ${configsdir} && find . -type f | sed 's|^./||'`)
+  configssubdirs=()
+  for configsfile in ${configsfiles}; do
+    configssubdirs+=(`dirname ${configsfile}`)
+  done
 
-# Link secret config files
-print "Linking secret config files..."
-for conffile in "${SCRIPT_DIR}"/secrets/*; do
-    zf_ln -sf "${conffile}" "${XDG_CONFIG_HOME}"
-    print "  ...linking ${conffile}"
+  # Create needed directories and set permissions
+  for configssubdir in ${(u)configssubdirs[@]}; do  # iterate array with unique items
+    print "  ...create and set permissions for '${XDG_CONFIG_HOME}/${configssubdir}'"
+    [ -L ${XDG_CONFIG_HOME}/${configssubdir} ] && rm "${XDG_CONFIG_HOME}/${configssubdir}"
+    zf_mkdir -p ${XDG_CONFIG_HOME}/${configssubdir}
+    zf_chmod 700 ${XDG_CONFIG_HOME}/${configssubdir}
+  done
+
+  # Create symbolic links
+  for configsfile in ${configsfiles}; do
+    print "  ...create symlink for '${XDG_CONFIG_HOME}/${configsfile}'"
+    zf_ln -sf ${SCRIPT_DIR}/${configsdir}/${configsfile} ${XDG_CONFIG_HOME}/${configsfile}
+  done
+
+  unset configsdir configsfiles configssubdirs configsubdir
 done
-unset conffile
+
 
 # Make sure submodules are installed
 print "Syncing submodules..."

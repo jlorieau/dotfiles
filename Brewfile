@@ -38,7 +38,7 @@ mas "Keynote", id: 409183694 # presentations
 mas "Pages", id: 409201541   # document editor
 mas "Numbers", id: 409203825 # spreadsheet
 # brew "vale"                # markup-aware language linter
-#mas "StopTheMadness", id: 1376402589  # browser customizer
+# mas "StopTheMadness", id: 1376402589  # browser customizer
 
 # online services
 brew "awscli"                # AWS command-line interface

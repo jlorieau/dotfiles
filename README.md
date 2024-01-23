@@ -31,23 +31,20 @@ $ ./deploy.sh
 Plugins
 =======
 
-Install
--------
+To install new plugins, run the following command:
 
 ```shell
 #  git submodule add --force --depth=1 <repo_url> <path> 
 $  git submodule add --force --depth=1 https://github.com/romkatv/powerlevel10k zsh/plugins/powerlevel10k 
 ```
 
-Update
-------
+To update the current plugins, run the following command:
 
 ```shell
 $ git sync
 ```
 
-Delete
-------
+To delete a plugin, run the following command:
 
 ```shell
 $ git submodule rm -f <path>

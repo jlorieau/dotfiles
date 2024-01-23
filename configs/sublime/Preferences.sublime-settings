@@ -1,0 +1,6 @@
+{
+	"caret_style": "solid",
+	"theme": "Adaptive.sublime-theme",
+	"font_size": 15,
+	"rulers": [88],  // ruler setting from Black
+}

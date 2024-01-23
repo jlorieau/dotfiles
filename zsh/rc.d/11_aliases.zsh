@@ -4,8 +4,3 @@
 
 # listing aliases
 (( ${+commands[ls]} )) && alias ll="ls -ahlF"
-
-# syntax highlighting
-(( ${+commands[pygmentize]} )) && alias cat="pygmentize -P style=gruvbox-dark"
-(( ${+commands[pygmentize]} )) && alias less='LESSOPEN="| pygmentize -O style=gruvbox-dark %s" less -M -R '
-(( ${+commands[pygmentize]} )) && alias more='LESSOPEN="| pygmentize -O style=gruvbox-dark %s" less -M -R '

@@ -6,6 +6,7 @@ brew "mas"                   # mac app store command line tools (https://github.
 brew "emacs"
 
 # terminal tools
+brew "bat"					 # source highlighting alt to cat
 brew "go-task"               # simplified Makefile alternative
 brew "mpv"                   # media player
 

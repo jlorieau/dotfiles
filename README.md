@@ -21,6 +21,16 @@ Features
   symlinks and setup. See, for example,  ``configs/sublime/.init.sh``, which creates 
   additional symlinks for MacOS.
 
+Supported Configurations
+------------------------
+- emacs
+- git
+- gnupg
+- matplotlib (MacOS)
+- mpv
+- python
+- sublime (MacOS)
+
 Install
 =======
 Clone the repo to the desired path

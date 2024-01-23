@@ -46,9 +46,10 @@ for configsdir ("configs" "secrets"); do
     configssubdirs+=(`dirname ${configsfile}`)
   done
 
-  # Create needed directories and set permissions
+  # Process config directories
   for configssubdir in ${(u)configssubdirs[@]}; do  # iterate array with unique items
     print "  ...create and set permissions for '${XDG_CONFIG_HOME}/${configssubdir}'"
+    # Create needed directories and set permissions
     [ -L ${XDG_CONFIG_HOME}/${configssubdir} ] && rm "${XDG_CONFIG_HOME}/${configssubdir}"
     zf_mkdir -p ${XDG_CONFIG_HOME}/${configssubdir}
     zf_chmod 700 ${XDG_CONFIG_HOME}/${configssubdir}
@@ -56,13 +57,20 @@ for configsdir ("configs" "secrets"); do
 
   # Create symbolic links
   for configsfile in ${configsfiles}; do
-    print "  ...create symlink for '${XDG_CONFIG_HOME}/${configsfile}'"
-    zf_ln -sf ${SCRIPT_DIR}/${configsdir}/${configsfile} ${XDG_CONFIG_HOME}/${configsfile}
+    configsrc=${SCRIPT_DIR}/${configsdir}/${configsfile}
+    configtgt=${XDG_CONFIG_HOME}/${configsfile}
+    print "  ...create symlink for '${configtgt}'"
+    zf_ln -sf ${configsrc} ${configtgt}
+
+    # Determine if an initialize script is specified. If so, run it
+    if [[ `basename ${configtgt}` == '.init.sh' ]]; then
+      print "    ...running '${configtgt}'"
+      source ${configtgt}
+    fi
   done
 
-  unset configsdir configsfiles configssubdirs configsubdir
 done
-
+unset configsdir configsfiles configssubdirs configsubdir configsrc configtgt
 
 # Make sure submodules are installed
 print "Syncing submodules..."

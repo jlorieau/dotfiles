@@ -1,5 +1,9 @@
 {
     "editor.cursorBlinking": "solid",
     "editor.fontSize": 14,
-    "editor.rulers": [88, 120]
+    "editor.rulers": [
+        88,
+        120
+    ],
+    "git.confirmSync": false
 }

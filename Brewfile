@@ -17,6 +17,7 @@ brew "rust"                  # compiler for the rust language
 brew "git-secrets"           # prevents git commits of sensitive info
 brew "jq"                    # JSON processor
 brew "pygments"              # syntax highlighter
+cask "visual-studio-code"    # Code IDE
 
 # security
 cask "keepassxc"             # password manager with GUI

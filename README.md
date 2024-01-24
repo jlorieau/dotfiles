@@ -23,13 +23,16 @@ Features
 
 Supported Configurations
 ------------------------
-- emacs
-- git
-- gnupg
-- matplotlib (MacOS)
-- mpv
-- python
-- sublime (MacOS)
+Tested on MacOS
+
+- [Visual Studio Code](https://github.com/microsoft/vscode)
+- [emacs](https://www.gnu.org/software/emacs/)
+- [git](https://git-scm.com)
+- [gnupg](https://www.gnupg.org)
+- [matplotlib](https://matplotlib.org)
+- [mpv](https://mpv.io)
+- [python3](https://www.python.org)
+- [sublime](https://www.sublimetext.com)
 
 Install
 =======

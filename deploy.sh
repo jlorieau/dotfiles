@@ -36,6 +36,24 @@ else
     print "  ...failed to match this script dir, symlinking .zshenv"
 fi
 
+# OS-specific installations and setup
+if [[ "$(uname)" == "Darwin" ]]; then  # MacOS
+  print "Setting up MacOS dependencies..."
+
+  # Install brew (https://github.com/Homebrew/brew)
+  if test ! $(which brew); then
+    print "  Installing Homebrew (requires admin permission)..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo
+  fi
+
+  # Install items in the Brewfile bundle (see ./Brewfile)
+  print "  Installing Brewfile bundle"
+  brew tap homebrew/bundle
+  brew bundle --file ./Brewfile
+
+fi
+
 # Link configs/secrets files
 zf_mkdir -p ./secrets
 for configsdir ("configs" "secrets"); do
@@ -95,24 +113,6 @@ if (( ${+commands[perl]} )); then
   print "Installing diff-so-fancy..."
   zf_ln -sf "${SCRIPT_DIR}/tools/diff-so-fancy/diff-so-fancy" "${HOME}/.local/bin/diff-so-fancy"
   print "  ...done"
-fi
-
-# OS-specific installations and setup
-if [[ "$(uname)" == "Darwin" ]]; then  # MacOS
-  print "Setting up MacOS dependencies..."
-
-  # Install brew (https://github.com/Homebrew/brew)
-  if test ! $(which brew); then
-    print "  Installing Homebrew (requires admin permission)..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo
-  fi
-
-  # Install items in the Brewfile bundle (see ./Brewfile)
-  print "  Installing Brewfile bundle"
-  brew tap homebrew/bundle
-  brew bundle --file ./Brewfile
-
 fi
 
 # Set correct permissions for dotfiles

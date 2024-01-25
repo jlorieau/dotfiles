@@ -101,6 +101,13 @@ if [[ "$(uname)" == "Darwin" ]]; then  # MacOS
     echo
   fi
 
+# Install diff-so-fancy
+if (( ${+commands[perl]} )); then
+  print "Installing diff-so-fancy..."
+  zf_ln -sf "${SCRIPT_DIR}/tools/diff-so-fancy/diff-so-fancy" "${HOME}/.local/bin/diff-so-fancy"
+  print "  ...done"
+fi
+
   # Install items in the Brewfile bundle (see ./Brewfile)
   print "  Installing Brewfile bundle"
   brew tap homebrew/bundle

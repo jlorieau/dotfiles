@@ -54,10 +54,19 @@ $ ./deploy.sh
 When new files are added in ``configs`` or ``secrets``, the ``deploy.sh`` script
 should be run again to create the new symlinks.
 
-Plugins
-=======
+Upgrading
+=========
+Pull the repo and run ``deploy.sh``
 
-To install new plugins, run the following command:
+```shell
+$ git pull
+$ ./dploy.sh
+```
+
+Plugins and Tools
+=================
+
+To install new plugins or tools, run the following command:
 
 ```shell
 #  git submodule add --force --depth=1 <repo_url> <path> 

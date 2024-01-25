@@ -10,3 +10,6 @@
 [submodule "zsh/plugins/autocomplete"]
 	path = zsh/plugins/autocomplete
 	url = https://github.com/marlonrichert/zsh-autocomplete
+[submodule "tools/diff-so-fancy"]
+	path = tools/diff-so-fancy
+	url = https://github.com/so-fancy/diff-so-fancy

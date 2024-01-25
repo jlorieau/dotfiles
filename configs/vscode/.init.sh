@@ -17,3 +17,33 @@ if [[ $(uname) == "Darwin" ]]; then
 	done
 fi
 unset INIT_SCRIPT_DIR USERDIR filename
+
+# Install extensions
+extensions=(
+	# Python IntelliSense (Pylance), Linting, Debugging, code formatting, refactoring,
+	ms-python.python
+	# A performant, feature-rich language server for Python in VS Code
+	ms-python.vscode-pylance
+	# Remotely browse and edit any Azure Repos
+	ms-vscode.azure-repos
+	# Remotely browse and edit git repositories
+	ms-vscode.remote-repositories
+	# Rust language support for Visual Studio Code
+	rust-lang.rust-analyzer
+	# Remotely browse and edit any GitHub repository
+	GitHub.remotehub
+	# Pull Request and Issue Provider for GitHub
+	GitHub.vscode-pull-request-github
+	# Hard word wrapping for comments and other text at a given column
+	stkb.rewrap
+	# Easily switch between projects
+	alefragnani.project-manager
+)
+
+if (( ${+commands[code]} )); then
+	for extension in ${extensions}; do
+		print "      ...installing VS extension '${extension}'"
+		code --install-extension ${extension} >& /dev/null
+	done
+fi
+unset extension extensions

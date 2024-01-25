@@ -27,10 +27,11 @@ brew "pinentry"              # dialog boxes for gnupg
 
 # OS tools
 brew "libnfs"                # NFS mount library
-brew "syncthing", restart_service: true  # distributed file synchronizer
+#brew "syncthing", restart_service: true  # distributed file synchronizer
 brew "zsh"                   # Z-shell
 cask "iterm2"                # more powerful terminal
 mas "BetterSnapTool", id: 417375580  # window management
+
 
 # productivity tools
 brew "texlive"               # LaTeX distribution
@@ -49,3 +50,13 @@ brew "awscli"                # AWS command-line interface
 brew "yt-dlp"                # youtube and other side video downloader
 cask "qbittorrent"           # bittorrent client
 
+# Visual Code extensions
+vscode "alefragnani.project-manager"        # Easily switch between projects
+vscode "GitHub.remotehub"                   # Remotely browse and edit any GitHub repository
+vscode "GitHub.vscode-pull-request-github"  # Pull Request and Issue Provider for GitHub
+vscode "ms-python.python"                   # Python IntelliSense, Linting, code formatting, etc.
+vscode "ms-python.vscode-pylance"           # Language server for Python in VS Code
+vscode "ms-vscode.azure-repos"              # Remotely browse and edit any Azure Repos
+vscode "ms-vscode.remote-repositories"      # Remotely browse and edit git repositories
+vscode "rust-lang.rust-analyzer"            # Rust language support for Visual Studio Code
+vscode "stkb.rewrap"                        # Hard word wrapping for comments and other text at a given column

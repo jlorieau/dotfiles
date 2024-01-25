@@ -1,5 +1,5 @@
 # Preferred editor and pager
-export EDITOR=vim
+export EDITOR=emacs
 export PAGER=less
 
 # XDG basedir spec compliance

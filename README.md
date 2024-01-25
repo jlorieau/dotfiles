@@ -31,6 +31,8 @@ Supported Configurations
 Tested on MacOS
 
 - [Visual Studio Code](https://github.com/microsoft/vscode)
+  - Automatic installation of extensions (see configs/vscode/.init.sh)
+  - Copying of settings (MacOS: ~/Library/Application Support/Code/User)
 - [emacs](https://www.gnu.org/software/emacs/)
 - [git](https://git-scm.com)
 - [gnupg](https://www.gnupg.org)

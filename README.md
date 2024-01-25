@@ -4,7 +4,10 @@ Derived from [z0rc's dotfiles](https://github.com/z0rc/dotfiles/blob/main/zsh/en
 Features
 ========
 - **No dotfiles manager dependencies**. Free of dotfiles managers--all configuration 
-  done by ``deploy.sh``
+  done by ``deploy.sh``. Dotfile managers introduce an extra dependancy, and they
+  commonly require that you place new settings in at least two places--in a directory
+  containing the setting and in an initialize file. The ``deploy.sh`` script here just 
+  symlinks what's available in the configs/secrets directories.
 - **XDG support**. Files are stored using the 
   [XDG base directory specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
 - **Git submodules, plugins, extensions**. Implementation of arbitrary git repositories 

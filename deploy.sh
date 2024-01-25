@@ -90,6 +90,13 @@ print "Compiling zsh plugins..."
 }
 print "  ...done"
 
+# Install diff-so-fancy
+if (( ${+commands[perl]} )); then
+  print "Installing diff-so-fancy..."
+  zf_ln -sf "${SCRIPT_DIR}/tools/diff-so-fancy/diff-so-fancy" "${HOME}/.local/bin/diff-so-fancy"
+  print "  ...done"
+fi
+
 # OS-specific installations and setup
 if [[ "$(uname)" == "Darwin" ]]; then  # MacOS
   print "Setting up MacOS dependencies..."
@@ -100,13 +107,6 @@ if [[ "$(uname)" == "Darwin" ]]; then  # MacOS
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo
   fi
-
-# Install diff-so-fancy
-if (( ${+commands[perl]} )); then
-  print "Installing diff-so-fancy..."
-  zf_ln -sf "${SCRIPT_DIR}/tools/diff-so-fancy/diff-so-fancy" "${HOME}/.local/bin/diff-so-fancy"
-  print "  ...done"
-fi
 
   # Install items in the Brewfile bundle (see ./Brewfile)
   print "  Installing Brewfile bundle"

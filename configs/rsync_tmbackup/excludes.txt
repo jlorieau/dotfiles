@@ -1,0 +1,34 @@
+# Directories to include
++ /Applications
++ /Code
++ /Cabinet
++ /Documents
++ /Music
++ /Pictures
++ /Research
+
+# Directories to exclude
+- /Documents/Library
+- /Downloads
+- /Library
+- /Parallels
+- /Temp
+- /Videos
+- /.cache
+- /.Graphics
+- /.Trash
+
+# Development directories
+- .tox
+- .venv
+
+# Garbage files
+- .DS_Store
+- *.rsls
+
+# NMR processing
+- test*fid
+- test*ft
+- test*ft1
+- test*ft2
+- test*ft3

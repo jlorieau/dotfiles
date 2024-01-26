@@ -1,6 +1,6 @@
 # human file sizes
-(( ${+commands[df]} )) && alias df="df --human-readable --print-type"
-(( ${+commands[du]} )) && alias du="du --human-readable --total"
+(( ${+commands[df]} )) && alias df="df -h"
+(( ${+commands[du]} )) && alias du="du -h"
 
 # listing aliases
 (( ${+commands[ls]} )) && alias ll="ls -ahlF"

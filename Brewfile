@@ -30,8 +30,8 @@ brew "libnfs"                # NFS mount library
 #brew "syncthing", restart_service: true  # distributed file synchronizer
 brew "zsh"                   # Z-shell
 cask "iterm2"                # more powerful terminal
+#cask "little-snitch" # makes these Internet connections visible and puts you back in control!
 mas "BetterSnapTool", id: 417375580  # window management
-
 
 # productivity tools
 brew "texlive"               # LaTeX distribution

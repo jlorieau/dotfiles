@@ -93,8 +93,10 @@ export CLICOLOR=1
 export LSCOLORS="ExGxcxdxcxegedabagacad"
 
 # best effort to make tools compliant to XDG basedir spec
+# see: https://wiki.archlinux.org/title/XDG_Base_Directory
 export ANSIBLE_LOCAL_TEMP="${XDG_RUNTIME_DIR}/ansible/tmp"
 export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
+export CARGO_HOME="${XDG_DATA_HOME}"/cargo
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 export GOPATH="${XDG_DATA_HOME}/go"
 export GEM_HOME="${XDG_DATA_HOME}/gem"

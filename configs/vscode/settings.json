@@ -8,5 +8,6 @@
     "git.confirmSync": false,
     "terminal.integrated.fontSize": 14,
     "rewrap.wrappingColumn": 80,
-    "workbench.colorTheme": "GitHub Dark"
+    "workbench.colorTheme": "GitHub Dark",
+    "diffEditor.hideUnchangedRegions.enabled": true
 }

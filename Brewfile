@@ -7,6 +7,7 @@ brew "emacs"
 
 # terminal tools
 brew "bat"					 # source highlighting alt to cat
+brew "tmux"                  # terminal multiplexer
 brew "go-task"               # simplified Makefile alternative
 brew "mpv"                   # media player
 

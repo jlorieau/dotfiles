@@ -2,6 +2,6 @@
 bindkey -e
 
 # MacOS specific keybindings
-if [[ "${OSTYPE}" = darwin* ]]; then
+if [[ "${OSTYPE}" = darwin* || ${OSTYPE} = freebsd* ]]; then
   bindkey "^[[3~" delete-char
 fi

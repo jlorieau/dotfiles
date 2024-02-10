@@ -1,6 +1,6 @@
 # human file sizes
 (( ${+commands[df]} )) && alias df="df -h"
-(( ${+commands[du]} )) && alias du="du -h"
+(( ${+commands[du]} )) && alias du="du -ch"
 
 # listing aliases
 (( ${+commands[ls]} )) && alias ll="ls -ahlF"

@@ -30,16 +30,18 @@ Supported Configurations
 ------------------------
 Tested on MacOS
 
-- [Visual Studio Code](https://github.com/microsoft/vscode)
+- [Visual Studio Code](https://github.com/microsoft/vscode) - 
+  Integrated Desktop Environment
   - Automatic installation of extensions (see configs/vscode/.init.sh)
   - Copying of settings (MacOS: ~/Library/Application Support/Code/User)
-- [emacs](https://www.gnu.org/software/emacs/)
-- [git](https://git-scm.com)
-- [gnupg](https://www.gnupg.org)
-- [matplotlib](https://matplotlib.org)
-- [mpv](https://mpv.io)
-- [python3](https://www.python.org)
-- [sublime](https://www.sublimetext.com)
+- [Kitty](https://github.com/kovidgoyal/kitty) - Terminal Emulator
+- [emacs](https://www.gnu.org/software/emacs/) - Terminal editor
+- [git](https://git-scm.com) - Distributed Version Control System
+- [gnupg](https://www.gnupg.org) - OpenPGP signing and encryption
+- [matplotlib](https://matplotlib.org) - Python plotter
+- [mpv](https://mpv.io) - Media player
+- [python3](https://www.python.org) - Python interpreter
+- [sublime](https://www.sublimetext.com) - Editor
 
 Install
 =======

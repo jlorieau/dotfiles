@@ -20,6 +20,11 @@ brew "jq"                    # JSON processor
 brew "pygments"              # syntax highlighter
 cask "visual-studio-code"    # Code IDE
 
+# fonts
+tap "homebrew/cask-fonts"    # extra fonts
+cask "homebrew/cask-fonts/font-cascadia-code"
+cask "homebrew/cask-fonts/font-fira-code"
+
 # security
 cask "keepassxc"             # password manager with GUI
 brew "gnupg"                 # GNU implementation of OpenPGP
@@ -30,7 +35,8 @@ brew "pinentry"              # dialog boxes for gnupg
 brew "libnfs"                # NFS mount library
 #brew "syncthing", restart_service: true  # distributed file synchronizer
 brew "zsh"                   # Z-shell
-cask "iterm2"                # more powerful terminal
+cask "kitty"                 # terminal emulator
+#cask "iterm2"                # terminal emulator
 #cask "little-snitch" # makes these Internet connections visible and puts you back in control!
 mas "BetterSnapTool", id: 417375580  # window management
 

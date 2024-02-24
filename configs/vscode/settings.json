@@ -14,5 +14,5 @@
     "rewrap.wrappingColumn": 80,
     "workbench.colorTheme": "GitHub Dark",
     "diffEditor.hideUnchangedRegions.enabled": true,
-    "outline.collapseItems": "alwaysCollapse"
+    "outline.collapseItems": "alwaysCollapse",
 }

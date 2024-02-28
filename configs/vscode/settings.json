@@ -15,4 +15,8 @@
     "workbench.colorTheme": "GitHub Dark",
     "diffEditor.hideUnchangedRegions.enabled": true,
     "outline.collapseItems": "alwaysCollapse",
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer",
+        "editor.formatOnSave": true
+    }
 }

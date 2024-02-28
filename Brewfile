@@ -15,6 +15,7 @@ brew "mpv"                   # media player
 brew "python@3.12"           # cpython interpreter
 brew "black"                 # python code formatter
 brew "rust"                  # compiler for the rust language
+brew "rustfmt"               # rust formatter
 brew "git-secrets"           # prevents git commits of sensitive info
 brew "jq"                    # JSON processor
 brew "pygments"              # syntax highlighter

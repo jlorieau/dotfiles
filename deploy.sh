@@ -52,6 +52,11 @@ if [[ "$(uname)" == "Darwin" ]]; then  # MacOS
   brew tap homebrew/bundle
   brew bundle --file ./Brewfile
 
+  # Set cursor blink times
+  defaults write -g NSTextInsertionPointBlinkPeriod -float 10000
+  defaults write -g NSTextInsertionPointBlinkPeriodOn -float 10000
+  defaults write -g NSTextInsertionPointBlinkPeriodOff -float 10000
+
 fi
 
 # Link configs/secrets files

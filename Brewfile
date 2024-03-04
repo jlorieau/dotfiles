@@ -62,6 +62,7 @@ cask "qbittorrent"           # bittorrent client
 vscode "alefragnani.project-manager"        # Easily switch between projects
 vscode "GitHub.remotehub"                   # Remotely browse and edit any GitHub repository
 vscode "GitHub.vscode-pull-request-github"  # Pull Request and Issue Provider for GitHub
+vscode "mhutchie.git-graph"                 # Better source control panel
 vscode "ms-python.python"                   # Python IntelliSense, Linting, code formatting, etc.
 vscode "ms-python.vscode-pylance"           # Language server for Python in VS Code
 vscode "ms-vscode.azure-repos"              # Remotely browse and edit any Azure Repos

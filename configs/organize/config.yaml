@@ -1,0 +1,102 @@
+pdf_dirs: &pdf_dirs
+    - /Volumes/common/Scans
+
+default_filters: &filters
+  - extension: pdf
+  - regex: '(?P<month>\d{2})(?P<day>\d{2})(?P<year>\d{4})(?P<hour>\d{2})(?P<min>\d{2})(?P<sec>\d{2}).*'
+
+default_rule: &rule
+  - locations: *pdf_dirs
+    filters: *filters
+
+rules:
+  # OCR
+  - <<: *rule
+    enabled: false
+    actions:
+      - shell: 'ocrmypdf --skip-text --clean -r --deskew -q --output-type pdf {path} {path}'
+      #- shell: 'ocrmypdf --force-ocr --clean -r --deskew -q --output-type pdf {path} {path}'
+
+  # Bills
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>(SUDLER\s*PROPERTY\s*MANAGEMENT|Sudler\s*Property\s*Management))'
+    actions:
+      - move: "{path.parent}/Bills/Sudler/{path.name}" 
+
+  # Immigration
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>U\.?S\.?\s+Citizenship\s+and\s+Immigration\s+Services)'
+    actions:
+      - move: "{path.parent}/Immigration/USCIS/{path.name}" 
+
+  # Insurance
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>[Mm]et[Ll]ife)'
+    actions:
+      - move: "{path.parent}/Insurance/MetLife/{path.name}" 
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>([Ss]tate\s*[Ff]arm|STATE\s*FARM))'
+    actions:
+      - move: "{path.parent}/Insurance/StateFarm/{path.name}" 
+
+  # Mortgage
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>[Ll]oan[Cc]are)'
+    actions:
+      - move: "{path.parent}/Mortgage/LoanCare/{path.name}"
+
+  # Not-for-Profit (NFP)
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>(International\s+Society\s+of\s+Magnetic\s+Resonance|INTERNATIONAL\s+SOCIETY\s+OF\s+MAGNETIC\s+RESONANCE))'
+    actions:
+      - move: "{path.parent}/NFP/ISMAR/{path.name}" 
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>(Dissemia|DISSEMIA))'
+    actions:
+      - move: "{path.parent}/NFP/Dissemia/{path.name}" 
+
+  # Notifications
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>[Ss]ecurity\s+[Nn]otification)'
+    actions:
+      - move: "{path.parent}/Notification/Data\ Breaches/{path.name}" 
+
+  # Reports
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>([Cc]redit\s*[Rr]eport))'
+    actions:
+      - move: "{path.parent}/Reports/Credit/{path.name}" 
+
+  # Retirement
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>State\s*of\s*Illinois\s*Deferred\s*Compensation\s*Plan)'
+    actions:
+      - move: "{path.parent}/Retirement/{path.name}" 
+
+  # Taxes
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>(Cook\s*County\s*Treasurer|cook\s*county\s*treasurer))'
+    actions:
+      - move: "{path.parent}/Taxes/Property\ Taxes/{path.name}" 

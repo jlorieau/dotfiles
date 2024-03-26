@@ -51,6 +51,11 @@ mas "Numbers", id: 409203825 # spreadsheet
 # brew "vale"                # markup-aware language linter
 # mas "StopTheMadness", id: 1376402589  # browser customizer
 
+# File organization
+brew "organize-tool"         # File and directory organizer
+brew "ocrmypdf"              # PDF OCR
+brew "poppler"               # PDF rendering library
+
 # online services
 brew "awscli"                # AWS command-line interface
 

@@ -12,18 +12,10 @@ default_rule: &rule
 rules:
   # OCR
   - <<: *rule
-    enabled: false
+    enabled: true
     actions:
       - shell: 'ocrmypdf --skip-text --clean -r --deskew -q --output-type pdf {path} {path}'
       #- shell: 'ocrmypdf --force-ocr --clean -r --deskew -q --output-type pdf {path} {path}'
-
-  # Bills
-  - <<: *rule
-    filters:
-      - *filters
-      - filecontent: '(?P<type>(SUDLER\s*PROPERTY\s*MANAGEMENT|Sudler\s*Property\s*Management))'
-    actions:
-      - move: "{path.parent}/Bills/Sudler/{path.name}" 
 
   # Immigration
   - <<: *rule
@@ -46,6 +38,12 @@ rules:
       - filecontent: '(?P<type>([Ss]tate\s*[Ff]arm|STATE\s*FARM))'
     actions:
       - move: "{path.parent}/Insurance/StateFarm/{path.name}" 
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>(BlueCrossBlueShield|Blue Cross and Blue Shield))'
+    actions:
+      - move: "{path.parent}/Insurance/Blue Cross Blue Shield/{path.name}" 
 
   # Mortgage
   - <<: *rule
@@ -54,6 +52,13 @@ rules:
       - filecontent: '(?P<type>[Ll]oan[Cc]are)'
     actions:
       - move: "{path.parent}/Mortgage/LoanCare/{path.name}"
+
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>(NEWREZ|Newrez))'
+    actions:
+      - move: "{path.parent}/Mortgage/Newrez/{path.name}"
 
   # Not-for-Profit (NFP)
   - <<: *rule
@@ -75,15 +80,15 @@ rules:
       - *filters
       - filecontent: '(?P<type>[Ss]ecurity\s+[Nn]otification)'
     actions:
-      - move: "{path.parent}/Notification/Data\ Breaches/{path.name}" 
+      - move: "{path.parent}/Notifications/Data\ Breaches/{path.name}" 
 
   # Reports
-  - <<: *rule
-    filters:
-      - *filters
-      - filecontent: '(?P<type>([Cc]redit\s*[Rr]eport))'
-    actions:
-      - move: "{path.parent}/Reports/Credit/{path.name}" 
+  # - <<: *rule
+  #   filters:
+  #     - *filters
+  #     - filecontent: '(?P<type>([Cc]redit\s*[Rr]eport))'
+  #   actions:
+  #     - move: "{path.parent}/Reports/Credit/{path.name}" 
 
   # Retirement
   - <<: *rule
@@ -99,4 +104,26 @@ rules:
       - *filters
       - filecontent: '(?P<type>(Cook\s*County\s*Treasurer|cook\s*county\s*treasurer))'
     actions:
-      - move: "{path.parent}/Taxes/Property\ Taxes/{path.name}" 
+      - move: "{path.parent}/Taxes/Property\ Taxes/{path.name}"
+
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>Form 1095-[CB])'
+    actions:
+      - move: "{path.parent}/Taxes/1095/{path.name}"
+
+  # Bills (Lowest Sorting Priority)
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>(SUDLER\s*PROPERTY\s*MANAGEMENT|Sudler\s*Property\s*Management))'
+    actions:
+      - move: "{path.parent}/Bills/Sudler/{path.name}" 
+
+  - <<: *rule
+    filters:
+      - *filters
+      - filecontent: '(?P<type>(Amount\s*Due|AMOUNT\s*DUE))'
+    actions:
+      - move: "{path.parent}/Bills/{path.name}" 

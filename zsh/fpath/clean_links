@@ -1,0 +1,14 @@
+# Helper function to clean broken symlinks in a given path
+
+emulate -L zsh
+
+files=(${(f)"$(find ${1:-.} -type l)"})
+
+count=0
+for symlink in $files; do
+    if ! [ -e "${symlink}" ]; then
+      printf "%4s. removing symlink \"${symlink}\" \n" $count
+      rm "${symlink}"
+      ((count++))
+    fi
+done

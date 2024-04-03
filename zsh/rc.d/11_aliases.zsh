@@ -12,4 +12,4 @@
 }
 
 # mpv aliases
-(( ${+commands[mpv]} )) && alias mpvr="find . -cmin -600 -type f|xargs mpv"
+(( ${+commands[mpv]} )) && alias mpvr="find . -atime -24h -type f|xargs mpv"

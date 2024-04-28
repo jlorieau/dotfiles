@@ -127,3 +127,12 @@ rules:
       - filecontent: '(?P<type>(Amount\s*Due|AMOUNT\s*DUE))'
     actions:
       - move: "{path.parent}/Bills/{path.name}" 
+
+  # Copy and sort locally
+  - locations: 
+    - path: "/Volumes/common/Scans"
+      min_depth: 1
+    filters: *filters
+    actions:
+      - echo: "{path}"
+    

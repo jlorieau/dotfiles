@@ -13,10 +13,20 @@
     "terminal.integrated.fontSize": 14,
     "rewrap.wrappingColumn": 80,
     "workbench.colorTheme": "GitHub Dark",
+    "workbench.editor.enablePreview": false,
     "diffEditor.hideUnchangedRegions.enabled": true,
     "outline.collapseItems": "alwaysCollapse",
     "[rust]": {
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
         "editor.formatOnSave": true
-    }
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    },
+    "python.testing.pytestArgs": [
+        "--doctest-modules", 
+        "--doctest-report", "ndiff"
+    ],
+    "python.testing.pytestEnabled": true
 }

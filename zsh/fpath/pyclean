@@ -1,0 +1,6 @@
+# Helper function to clean python temporary bytecode files
+
+emulate -L zsh
+
+local cleanpath=${1:-.}
+find ${cleanpath} -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete

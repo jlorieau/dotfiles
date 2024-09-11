@@ -13,7 +13,6 @@
     "terminal.integrated.fontSize": 14,
     "rewrap.wrappingColumn": 80,
     "workbench.colorTheme": "GitHub Dark",
-    "workbench.editor.enablePreview": false,
     "diffEditor.hideUnchangedRegions.enabled": true,
     "outline.collapseItems": "alwaysCollapse",
     "[rust]": {
@@ -22,14 +21,30 @@
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
     },
+    "python.venvPath": "{workspaceFolder}/.hatch",
     "python.testing.pytestArgs": [
         "--doctest-modules", 
         "--doctest-report", "ndiff"
     ],
     "python.testing.pytestEnabled": true,
+    "mypy-type-checker.ignorePatterns": [
+        "test_*.py"
+    ],
     "files.exclude": {
         "**/__pycache__": true
-    }
+    },
+    "[json]": {
+
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
 }

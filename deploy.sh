@@ -49,7 +49,7 @@ if [[ "$(uname)" == "Darwin" ]]; then  # MacOS
 
   # Install items in the Brewfile bundle (see ./Brewfile)
   print "  Installing Brewfile bundle"
-  brew tap homebrew/bundle
+  #brew tap homebrew/brew
   brew bundle --file ./Brewfile
 
   # Set cursor blink times

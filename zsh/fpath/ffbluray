@@ -1,3 +1,0 @@
-emulate -L zsh
-
-ffmpeg -stats -i $1 -map 0 -c:v libx265 -c:a aac -b:a 320k -c:s copy -preset medium -crf 20 ${2%.*}.mkv

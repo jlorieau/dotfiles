@@ -4,7 +4,7 @@ command=()
 
 case $1 in
 bluray)
-    command+=(ffmeg -stats)
+    command+=(ffmpeg -stats)
     command+=(-i $2 -map 0)
     command+=(-c:v libx265 -crf 20 -preset medium)
     command+=(-c:a aac -b:a 320k)

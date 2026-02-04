@@ -5,11 +5,11 @@ command=()
 case $1 in
 bluray)
     command+=(ffmpeg -stats)
-    command+=(-i $2 -map 0)
+    command+=(-i "$2" -map 0)
     command+=(-c:v libx265 -crf 20 -preset medium)
     command+=(-c:a aac -b:a 320k)
     command+=(-c:s copy)
-    command+=(${3%.*}.mkv)
+    command+=("${3%.*}.mkv")
     ;;
 *)
     echo "Valid subcommands: bluray, bluray2pass"

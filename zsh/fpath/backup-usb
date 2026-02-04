@@ -1,0 +1,48 @@
+# Helper function to backup directories to 
+
+emulate -L zsh
+
+BACKUPDIRS=(
+     /mnt/tank/media/photos 
+     /mnt/tank/backups 
+     /mnt/tank/apps
+     /mnt/tank/users
+)
+
+# Test that a destination directory is specified
+[[ -z $1 ]] && echo "Target directory not specified." && echo "$0 [target-dir]" && return 1
+
+# Test that the destination directory exists
+[[ ! -d $1 ]] && echo "Target directory does not exist." && return 1
+
+# Test that the backup directories exist
+for backupdir in $BACKUPDIRS
+do
+  [[ ! -d $backupdir ]] && echo "Backup directory '$backupdir' does not exist." && return 1
+done
+
+# Check the size of BACKUPDIRS. 
+# The cmd backslash bypasses aliases.
+# The command is setup to put each line into an array element
+echo "Calculating disk usage..."
+DUCMD=("${(@f)$(\du -mcs $BACKUPDIRS)}")
+DFCMD=("${(@f)$(\df -m $1)}")
+
+# Process the output
+DISK_USAGE_MB=(${=DUCMD[-1]})
+DISK_USAGE_MB=$DISK_USAGE_MB[1]
+DISK_FREE_MB=(${=DFCMD[-1]})
+DISK_FREE_MB=$DISK_FREE_MB[4]
+
+# Check that the usage does not exceed the free space
+if [[ $DISK_USAGE_MB -ge $DISK_FREE_MB ]]; then 
+    echo "Disk usage ${DISK_USAGE_MB}MB exceeds ${DISK_FREE_MB}MB free space"
+    return 1
+else
+    echo "Disk usage ${DISK_USAGE_MB}MB within ${DISK_FREE_MB}MB free space"
+fi
+
+# Prepare the rsync command
+RSYNC_CMD="rsync -auvz --progress $BACKUPDIRS ${1%/}/"
+echo $RSYNC_CMD
+return 0

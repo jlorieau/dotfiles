@@ -30,6 +30,9 @@ fi
 path=(${HOME}/.local/bin ${HOME}/Code/scripts ${path})
 MANPATH="${XDG_DATA_HOME}/man:${MANPATH}"
 
+# Mactex/texlive paths
+path=(/usr/local/texlive/latest/bin/universal-darwin /usr/local/texlive/2026/bin/universal-darwin ${path})
+
 # Paths for NMRPipe
 nmrpipe_locs=('/opt/NMRPipe' '~/NMRPipe')
 
